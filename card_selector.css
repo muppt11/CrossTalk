@@ -1,0 +1,103 @@
+.card-selector-root {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.card-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-selector-viewport {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 0.35rem 0.15rem 0.85rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  scrollbar-width: thin;
+}
+
+.card-selector-card {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  border: 1px solid var(--line, rgba(23, 34, 31, 0.16));
+  border-left: 5px solid var(--mint, #b9e6d5);
+  border-radius: 4px 14px 14px 4px;
+  background: #ffffff;
+  color: var(--ink, #17221f);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.card-selector-card:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.card-selector-card:active {
+  transform: scale(0.97);
+}
+
+.card-selector-card:focus-visible {
+  outline: 2px solid var(--orange, #f3784b);
+  outline-offset: 2px;
+}
+
+.card-selector-card.selected {
+  border-color: var(--orange, #f3784b);
+  border-left-color: var(--orange, #f3784b);
+  box-shadow: 0 0 0 2px var(--orange, #f3784b);
+  transform: scale(1.03);
+}
+
+.card-selector-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  word-break: break-word;
+}
+
+.card-selector-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted, #68736f);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.card-selector-desc {
+  font-size: 0.82rem;
+  color: var(--ink, #17221f);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-selector-arrow {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--line, rgba(23, 34, 31, 0.16));
+  background: #ffffff;
+  color: var(--ink, #17221f);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-selector-arrow:hover {
+  background: var(--ink, #17221f);
+  color: #ffffff;
+  border-color: var(--ink, #17221f);
+}

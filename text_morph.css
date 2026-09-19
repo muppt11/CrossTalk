@@ -1,0 +1,46 @@
+/* Hand-written equivalents of the small set of Tailwind utility classes the original
+   componentry.dev Text Morph component relies on purely for layout — no Tailwind build
+   needed for a fixed, static class list. */
+
+.text-morph-root {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+
+.text-morph-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.text-morph-stage {
+  position: relative;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  user-select: none;
+}
+
+.text-morph-layer {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  display: block;
+  width: max-content;
+  white-space: pre;
+}
+
+/* CrossTalk-specific styling: matches the surrounding .score-panel look (app.py) by
+   reading the app's own theme custom properties, so this stays on-theme automatically. */
+.text-morph-root {
+  font-family: "DM Mono", monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mint, #b9e6d5);
+  margin-top: 0.6rem;
+}

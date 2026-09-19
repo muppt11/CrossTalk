@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CrossTalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="#top" aria-label="CrossTalk home">CROSSTALK</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#discover">Discover</a>
+      <a href="#analyze">Analyze</a>
+      <a href="#results" id="nav-results" hidden>Results</a>
+      <span class="streak" id="streak" hidden></span>
+      <button class="text-link nav-auth" id="auth-link" type="button">Connect GitHub</button>
+      <span class="nav-user" id="auth-user" hidden>
+        <img class="avatar" id="auth-avatar" alt="" width="24" height="24" hidden>
+        <span class="auth-login" id="auth-login"></span>
+        <button class="text-link" id="auth-signout" type="button">Sign out</button>
+      </span>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Find what your projects can build together.</h1>
+      <p class="subtitle">Compare public GitHub projects. See which ones stack, and which ones compete.</p>
+      <div class="cta-row">
+        <a class="btn btn-light" href="#discover">Search GitHub</a>
+        <a class="btn btn-dark" href="#analyze">Analyze</a>
+      </div>
+    </section>
+
+    <section class="section" id="discover">
+      <h2>Discover projects</h2>
+      <div class="tabs" id="discover-tabs" role="tablist" aria-label="Project source" hidden>
+        <button class="tab is-active" id="tab-search" role="tab" aria-selected="true" type="button">Search GitHub</button>
+        <button class="tab" id="tab-mine" role="tab" aria-selected="false" type="button">My repositories</button>
+      </div>
+      <form class="search-form" id="search-form">
+        <label class="sr-only" for="search-input">Search GitHub</label>
+        <input id="search-input" class="underline-input" type="search" value="authentication middleware" autocomplete="off">
+        <button class="btn btn-dark btn-small" type="submit">Search</button>
+      </form>
+      <p class="status" id="search-status" role="status" aria-live="polite"></p>
+      <div class="carousel" id="carousel"></div>
+    </section>
+
+    <section class="section" id="analyze">
+      <h2>Your stack</h2>
+      <p class="section-note">Pick two to ten projects. Add them from the results above or type owner/repo.</p>
+      <ul class="chips" id="chips" aria-label="Selected projects"></ul>
+      <form class="search-form" id="manual-form">
+        <label class="sr-only" for="manual-input">Add a repository</label>
+        <input id="manual-input" class="underline-input" type="text" placeholder="owner/repo" autocomplete="off" spellcheck="false">
+        <button class="text-link" type="submit">Add</button>
+      </form>
+      <p class="status" id="analyze-status" role="status" aria-live="polite"></p>
+      <button class="btn btn-dark" id="analyze-btn" type="button">Analyze</button>
+    </section>
+
+    <section class="section results" id="results" hidden>
+      <div class="result-hero">
+        <p class="eyebrow">Composability</p>
+        <p class="score" id="score">0%</p>
+        <div class="morph-line" id="score-morph"></div>
+        <div class="meter meter-wide" id="redundancy-meter"></div>
+        <p class="section-note" id="analyzed-count"></p>
+        <button class="text-link replay" id="replay-confetti" type="button" hidden>Replay celebration</button>
+      </div>
+
+      <p class="summary" id="summary"></p>
+      <div class="tag-group" id="tags"></div>
+      <p class="next-step" id="recommendation"></p>
+
+      <h3>Ranked pairs</h3>
+      <div class="pair-grid" id="pairs"></div>
+
+      <h3>Projects</h3>
+      <div class="project-list" id="projects"></div>
+
+      <h3>Source material</h3>
+      <div class="sources" id="sources"></div>
+    </section>
+  </main>
+
+  <footer class="footer">CrossTalk prototype</footer>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

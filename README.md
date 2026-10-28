@@ -55,6 +55,14 @@ An OpenAI key is optional. Without one, CrossTalk scores every project pair on t
 
 With `OPENAI_API_KEY`, it uses `gpt-4o-mini` for semantic analysis and richer explanations instead. Either way, the report is designed to identify useful relationships: a project that can be extended, wrapped, adapted, or combined with another project, not just projects that are duplicates.
 
+## Challenges
+
+**Similar isn't the same as compatible.** Two auth libraries look alike but compete, while an auth library and an API framework look different but fit together. I split scoring into two axes, composability and redundancy, instead of one similarity score.
+
+**Working without an API key.** Not everyone has an OpenAI key, so the default path runs locally with TF IDF similarity plus a capability map. The AI path is an upgrade, not a requirement.
+
+**GitHub rate limits.** Without a token, GitHub allows only 60 requests an hour. CrossTalk caps how much of each README it reads and supports an optional free token that raises the limit to 5,000.
+
 ## Connect GitHub (sign in and see your own repositories)
 
 The web version has a **Connect GitHub** button that signs you in with GitHub so you can browse your own repositories, including private ones, and analyze them. It needs a one-time setup, because GitHub requires every app that offers sign-in to be registered:
